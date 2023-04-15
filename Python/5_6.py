@@ -1,5 +1,5 @@
 s = input()
-a = 'abcdefghijklmnopqlstuvwxyz'
+a = 'abcdefghijklmnopqrstuvwxyz'
 
 for i in a:
     if i in s:

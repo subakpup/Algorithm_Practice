@@ -1,4 +1,4 @@
-n = list(str(input()))
+n = list(input())
 arr = ['ABC','DEF','GHI','JKL','MNO','PQRS','TUV','WXYZ']
 second = 0
 
