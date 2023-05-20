@@ -9,3 +9,4 @@ for _ in range(int(input())):
     
     for tmp in arr:
         print(*tmp,sep='')
+    print()
