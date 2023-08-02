@@ -1,9 +1,14 @@
-gun = 10
-def chck(sol):
-    global gun
-    gun -= sol
-    print(f"남은 총 : {gun}")
+class Unit:
+    def __init__(self, name, hp, damage) :
+        self.name = name
+        self.hp = hp
+        self.damage = damage
+    def print_stat(self):
+        print(f'{self.name} 유닛이 생성 되었습니다.')
+        print(f'체력 {self.hp}, 공격력 {self.damage}')
 
-print(f"전체 총 : {gun}")
-chck(2)
-print(f"남은 총 : {gun}")
+marine1 = Unit("마린", 40, 5)
+marine2 = Unit("마린", 40, 5)
+tank = Unit("탱크", 150, 35)
+
+Unit.print_stat(marine1)
