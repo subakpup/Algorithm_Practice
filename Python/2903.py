@@ -1,8 +1,1 @@
-import sys
-input = sys.stdin.readline
-
-insert = int(input())
-dot = 2**2-1
-
-for i in range(insert):
-    dots = dot
+print((2**int(input())+1)**2)
