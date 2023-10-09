@@ -1,14 +1,14 @@
 import sys
 input = sys.stdin.readline
- 
-word = input().upper()
-word_list = list(set(word))
+
+a = input().rstrip().upper()
+al = list(set(a))
 arr = []
 
-for i in word_list:
-    arr.append(word.count(i))
+for i in al:
+    arr.append(a.count(i))
 
 if arr.count(max(arr)) > 1:
-    print("?")
+    print('?')
 else:
-    print(word_list[arr.index(max(arr))])
+    print(al[arr.index(max(arr))])

@@ -1,13 +1,13 @@
 import sys
 input = sys.stdin.readline
 
-cnt = int(input())
-for _ in range(cnt):
-    a = input()
-    for i in range(len(a)-1):
-        if a[i] == a[i+1]:
-            pass
-        elif a[i] in a[i+1:]:
-            cnt -= 1
-
-print(cnt)
+cnt = 0
+# for _ in range(int(input())):
+#     a = input()
+#     if list(a) == sorted(a, key=a.find):
+#         cnt += 1
+a = input().rstrip()
+print(list(a))
+print(sorted(a, key=a.find))
+print(sorted(a))
+# print(cnt)
