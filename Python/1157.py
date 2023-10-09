@@ -1,7 +1,7 @@
 import sys
 input = sys.stdin.readline
  
-word = str(input()).upper()
+word = input().upper()
 word_list = list(set(word))
 arr = []
 
