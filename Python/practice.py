@@ -1,14 +1,14 @@
-class Unit:
-    def __init__(self, name, hp, damage) :
-        self.name = name
-        self.hp = hp
-        self.damage = damage
-    def print_stat(self):
-        print(f'{self.name} 유닛이 생성 되었습니다.')
-        print(f'체력 {self.hp}, 공격력 {self.damage}')
+import sys
+input = sys.stdin.readline
 
-marine1 = Unit("마린", 40, 5)
-marine2 = Unit("마린", 40, 5)
-tank = Unit("탱크", 150, 35)
+a = input().upper()
+al = list(set(a))
+arr = []
 
-Unit.print_stat(marine1)
+for i in al:
+    arr.append(a.count(i))
+print(arr)
+if al.count(max(arr)) >1:
+    print('?')
+else:
+    print(al[arr.index(max(arr))])
