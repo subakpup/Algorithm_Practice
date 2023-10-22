@@ -1,6 +1,7 @@
-import sys
-input = sys.stdin.readline
+from bisect import bisect_left, bisect_right
 
-days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-a = list(map(int,input()))
+array = [1, 2, 3, 4, 4, 6, 8, 9]
+x = 0
 
+print(bisect_left(array, x)) # 3
+print(bisect_right(array, x)) # 5

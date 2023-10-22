@@ -1,11 +1,23 @@
 import sys
 input = sys.stdin.readline
 
-a = int(input())
-n = list(map(int,input().split()))
-aa = int(input())
+N = int(input())
+n = sorted(list(map(int,input().split())))
+M = int(input())
 m = list(map(int,input().split()))
-n.sort()
 
 for i in m:
-    if m
+    lt = 0
+    rt = N - 1
+    
+    while lt <= rt:
+        mid = (lt+rt)//2
+        if n[mid] == i:
+            print(1)
+            break
+        elif n[mid] < i:
+            lt = mid + 1
+        else:
+            rt = mid - 1
+    else:
+        print(0)
