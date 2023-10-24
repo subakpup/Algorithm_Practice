@@ -6,7 +6,6 @@ N = int(input())
 n = sorted(set(map(int,input().split())))
 M = int(input())
 m = list(map(int,input().split()))
-print(n)
 for i in m:
     rt = bisect_right(n, i)
     lt = bisect_left(n, i)
