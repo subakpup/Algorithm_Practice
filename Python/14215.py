@@ -1,6 +1,5 @@
 import sys
 input = sys.stdin.readline
 
-a,b,c = map(int,input().split())
-
-result = a + b + min(c,)
+a = sorted(map(int,input().split()))
+print(a[0]+a[1]+min(a[2],a[0]+a[1]-1))
