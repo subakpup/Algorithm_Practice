@@ -1,8 +1,4 @@
-from collections import deque
-import sys
-input = sys.stdin.readline
+a,b = map(int,input().split())
 
-arr = deque(input().rstrip()[1:-1].split(","))
-arr.reverse()
-
-print(arr)
+res = a//b
+print(res) +1
