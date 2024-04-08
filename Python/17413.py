@@ -6,6 +6,7 @@ s = input().rstrip()
 chk = False
 res = ''
 
+<<<<<<< Updated upstream
 for i in s:
     if i == " ":
         while stk:
@@ -27,3 +28,13 @@ for i in s:
 while stk:
     res += stk.pop()
 print(res)
+=======
+for i in range(len(s)):
+    string = ''
+    if "<" in s[i]:
+        print(s[i])
+    else:
+        for j in s[i]:
+            string = j + string
+        print(string, end=" ")
+>>>>>>> Stashed changes
