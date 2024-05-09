@@ -1,7 +1,6 @@
-import sys, random
+import sys
 input = sys.stdin.readline
 
-arr = []
-random.shuffle(arr)
+a = list(map(str,input().split()))
 
-print(*arr, sep='')
+print(a)
