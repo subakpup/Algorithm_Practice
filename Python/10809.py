@@ -1,6 +1,3 @@
-import sys
-input = sys.stdin.readline
-
 s = input()
 abc = 'abcdefghijklmnopqrstuvwxyz'
 
