@@ -1,5 +1,4 @@
 diagram = ['ABC','DEF','GHI','JKL','MNO','PQRS','TUV','WXYZ']
-
 s = input()
 second = 0
 
