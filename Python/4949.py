@@ -2,21 +2,28 @@ import sys
 input = sys.stdin.readline
 
 while True:
+    stk = []
     s = input().rstrip()
-    cnt1 = 0
-    cnt2 = 0
+    
     if s == '.':
         break
+    
     for i in s:
-        if i == '(':
-            cnt1 += 1
+        if i == '(' or i == '[':
+            stk.append(i)
         elif i == ')':
-            cnt1 -= 1
-        elif i == '[':
-            cnt2 += 1
+            if stk and stk[-1] == '(':
+                stk.pop()
+            else:
+                stk.append(i)
+                break
         elif i == ']':
-            cnt2 -= 1
-    if cnt1 == 0 and cnt2 == 0:
-        print('yes')
-    else:
+            if stk and stk[-1] == '[':
+                stk.pop()
+            else:
+                stk.append(i)
+                break
+    if stk:
         print('no')
+    else:
+        print('yes')
