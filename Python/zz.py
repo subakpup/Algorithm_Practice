@@ -1,8 +1,5 @@
-from collections import Counter
-
-for _ in range(int(input())):
-    a = int(input())
-    arr = list(map(int,input().split()))
-
-    
-    print(f'#{a}')
+arr = [i for i in range(1, int(input())+1)]
+for i in range(len(arr)):
+    if str(arr[i]) in '3':
+        arr[i] = '-' * str(arr[i]).count('3')
+print(*arr)
