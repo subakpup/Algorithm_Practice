@@ -18,13 +18,14 @@ if __name__ == '__main__':
     n,m,v = map(int,input().split())
     visited = [0] * (n+1)
     graph = [[] for _ in range(n+1)]
+    
     for _ in range(m):
         a,b = map(int,input().split())
         graph[a].append(b)
         graph[b].append(a)
     
     for i in range(1, n+1):
-        graph[i].sort()
+        graph[i].sort(reverse=True)
     
     bfs(graph,v,visited)
 
