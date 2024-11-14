@@ -1,4 +1,2 @@
-g = [1,3,7,9,5]
-for i in range(3):
-    max(g) += 1
-print(max(g))
+for i in range(1, 10, 2):
+    print(i) 
