@@ -1,13 +1,18 @@
 import sys
 input = sys.stdin.readline
 
-def isPrime(n):
-    if n < 2:
-        return False
-    else:
-        for i in range(2, int(n**0.5)+1):
-            if n % i == 0:
-                return False
-        return True
+prime = [True for _ in range(1000001)]
+prime[0] = prime[1] = False
+for i in range(2, int(1000001 ** 0.5) + 1):
+    if prime[i] == True:
+        for j in range(i*2, 1000001, i):
+            prime[j] = False
 
-for i in range(int(input())):
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    pt = 0
+    for num in range(2, n//2+1):
+        if prime[num] and prime[n - num]:
+            pt += 1
+    print(pt)

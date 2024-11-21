@@ -2,7 +2,19 @@ import sys
 input = sys.stdin.readline
 
 def star(n):
-    s = '***\n* *\n***' * n
-    return s
+    if n == 1:
+        return '*'
+    
+    stars = star(n//3)
+    lst = []
+    for i in stars:
+        lst.append(i*3)
+    for i in stars:
+        lst.append(i+' '*(n//3)+i)
+    for i in stars:
+        lst.append(i*3)
+    
+    return lst
 
-print(star(2))
+n = int(input())
+print('\n'.join(star(n)))
