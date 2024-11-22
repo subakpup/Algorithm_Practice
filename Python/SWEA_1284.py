@@ -8,9 +8,6 @@ for tc in range(1,t+1):
     b = q
     if r < w:
         b = (w - r) * s + q
-    
-    if a > b:
-        res = b
-    else:
-        res = a
+
+    res = min(a,b)
     print(f'#{tc} {res}')
