@@ -3,13 +3,11 @@ input = sys.stdin.readline
 
 n,m = map(int,input().split())
 arr = list(map(int,input().split()))
-num = [0]
-tmp = 0
 
-for i in arr:
-    tmp += i
-    num.append(tmp)
+num = [0]
+for i in range(n):
+    num.append(arr[i] + num[i])
 
 for _ in range(m):
-    a,b = map(int,input().split())
-    print(num[b] - num[a-1])
+    i,j = map(int,input().split())
+    print(num[j]-num[i-1])
