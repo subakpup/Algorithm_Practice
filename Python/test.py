@@ -1,10 +1,8 @@
-import sys
-input = sys.stdin.readline
-
-n = int(input())
-dp = [0] * (n+1)
-dp[1] = 9
-if n >= 2:
-    for i in range(2, n+1):
-        dp[i] = dp[i-1] * 2 - (i-1)
-print(dp[n]%1000000000)
+a = '3' * 3 # '333'
+b = '30' * 3 # '303030'
+c = '34' * 3 # '343434'
+print()
+print()
+print(sorted([a,b,c], reverse=True))
+print()
+print()
