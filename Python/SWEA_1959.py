@@ -1,21 +1,20 @@
-t = int(input())
-for test_case in range(1, t+1):
-    n, m = map(int, input().split())
-    a = list(map(int, input().split()))
-    b = list(map(int, input().split()))
+def func(n,m,a,b):
     res = 0
+    for i in range(m-n+1):
+        tmp = 0
+        for j in range(n):
+            tmp += a[j] * b[i+j]
+        res = max(res, tmp)
+    return res
 
-    if n > m:
-        for i in range(n-m+1):
-            ans = []
-            for j in range(m):
-                ans.append(a[i+j] * b[j])
-            res = max(res, sum(ans))
+for tc in range(1, int(input())+1):
+    N,M = map(int,input().split())
+    A = list(map(int,input().split()))
+    B = list(map(int,input().split()))
+    
+    if N<M:
+        answer = func(N,M,A,B)
     else:
-        for i in range(m-n+1):
-            ans = []
-            for j in range(n):
-                ans.append(a[j] * b[i+j])
-            res = max(res, sum(ans))
-
-    print(f'#{test_case} {res}')
+        answer = func(M,N,B,A)
+    
+    print(f'#{tc} {answer}')
