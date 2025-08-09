@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Main {
+public class Main_15651 {
 	static int n, m;
 	static List<Integer> arr = new ArrayList<>();
 	static StringBuilder sb = new StringBuilder();
