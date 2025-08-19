@@ -26,7 +26,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Solution {
+public class Solution_1873 {
 	static int h, w, n; // 높이, 너비, 커맨드 수
 	static String[][] field; // 게임 맵
 	static String direction; // 전차의 방향

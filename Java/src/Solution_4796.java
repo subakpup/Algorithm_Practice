@@ -19,7 +19,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Solution {
+public class Solution_4796 {
 	static int t, n, answer;
 	static int[] h;
 	static StringBuilder sb = new StringBuilder();
