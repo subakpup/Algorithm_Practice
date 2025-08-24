@@ -19,7 +19,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Solution {
+public class Solution_5644 {
 	static StringBuilder sb = new StringBuilder();
 	static int m, a, Ar, Ac, Br, Bc;
 	static int[] A, B;

@@ -17,7 +17,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Solution {
+public class Solution_1949 {
 	static StringBuilder sb = new StringBuilder();
 	static StringTokenizer st;
 	static int n, k, max_height, answer;

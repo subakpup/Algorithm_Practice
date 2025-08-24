@@ -15,7 +15,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Solution {
+public class Solution_1267 {
 	static StringBuilder sb = new StringBuilder();
 	static StringTokenizer st;
 	static int v, e;

@@ -15,7 +15,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Solution {
+public class Solution_1238 {
 	static StringBuilder sb = new StringBuilder();
 	static StringTokenizer st; 
 	static int n, s, answer; // 데이터의 길이, 시작점

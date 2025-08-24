@@ -15,7 +15,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Solution {
+public class Solution_7733 {
 	static StringBuilder sb = new StringBuilder();
 	static int n, block; // 치즈 한 변의 길이
 	static int[][] cheese; // 치즈의 정보
