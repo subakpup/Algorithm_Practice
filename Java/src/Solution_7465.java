@@ -1,5 +1,5 @@
 /*
- * Solution_3289 서로소 집합 (D4)
+ * Solution_7465 창용 마을 무리의 개수 (D4)
  * 
  * # 문제 정리
  *  - 1부터 n까지 번호가 붙여진 n명의 사람
@@ -16,7 +16,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Solution_3289 {
+public class Solution_7465 {
 	static StringBuilder sb = new StringBuilder();
 	static int n, m, answer;
 	static int[] p, size;
