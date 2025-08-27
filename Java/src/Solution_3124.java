@@ -16,7 +16,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Solution {
+public class Solution_3124 {
 	static StringBuilder sb = new StringBuilder();
 	static int v, e;
 	static int[][] edges;

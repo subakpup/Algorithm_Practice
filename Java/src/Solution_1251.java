@@ -13,9 +13,8 @@
  */
 import java.util.*;
 import java.io.*;
-import java.lang.reflect.Array;
 
-public class Solution {
+public class Solution_1251 {
 	static StringBuilder sb = new StringBuilder();
 	static int n;
 	static double e;

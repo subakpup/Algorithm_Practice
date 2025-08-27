@@ -16,7 +16,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Solution {
+public class Solution_3289 {
 	static StringBuilder sb = new StringBuilder();
 	static int n, m;
 	static int[] p, size;
