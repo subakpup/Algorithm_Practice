@@ -26,7 +26,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Solution {
+public class Solution_5656 {
 	static StringBuilder sb = new StringBuilder();
 	static StringTokenizer st;
 	static int n, w, h, answer;

@@ -19,7 +19,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Main {
+public class Main_1992 {
 	static StringBuilder sb = new StringBuilder();
 	static int n;
 	static int[][] map;

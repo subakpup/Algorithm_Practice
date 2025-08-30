@@ -14,7 +14,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Solution {
+public class Solution_1251_Prim {
 	
 	static StringBuilder sb = new StringBuilder();
 	static StringTokenizer st;

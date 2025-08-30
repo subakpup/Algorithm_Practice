@@ -13,7 +13,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Solution {
+public class Solution_3124_Prim {
 	static class Edge implements Comparable<Edge> {
 		int to, w;
 
