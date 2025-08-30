@@ -1,30 +1,23 @@
-t = int(input())
-for tc in range(1, t+1):
+for tc in range(1, int(input())+1):
     n = int(input())
-    trees = list(map(int,input().split()))
+    trees = list(map(int, input().split()))
+
+    max_height = max(trees)
+    heights = [max_height - h for h in trees]
+    total_height = sum(heights)
+
+    if not total_height:
+        print(f'#{tc} 0')
+        continue
+
+    even = 0
+    for height in heights:
+        even += height // 2
     
-    target = max(trees)
+    days = int(1e9)
+    for i in range(even + 1):
+        cnt1 = total_height - i * 2
+        cnt2 = i
+        days = min(days, max(cnt1 * 2 - 1, cnt2 * 2))
     
-    cnt1, cnt2 = 0
-    for h in trees:
-        d = target - h
-        cnt1 += d % 2
-        cnt2 += d // 2
-    
-    day = 0
-    while cnt1 > 0 and cnt2 > 0:
-        day += 1
-        if day % 2 == 0:
-            if cnt2 > 0:
-                cnt2 -= 1
-            elif cnt1 > 1:
-                cnt1 -= 2
-            elif cnt1 == 1:
-                cnt1 -= 1
-        else:
-            if cnt1 > 0:
-                cnt1 -= 1
-            
-    
-    
-    print(f'#{tc} {day}')
+    print(f'#{tc} {days}')
