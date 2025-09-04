@@ -21,7 +21,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Main {
+public class Main_16930 {
 	static int n, m, k, sr, sc, er, ec;
 	static int answer = -1;
 	static char[][] map;
