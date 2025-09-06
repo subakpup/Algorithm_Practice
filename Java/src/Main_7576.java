@@ -2,7 +2,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Main {
+public class Main_7576 {
 	static int m, n;
 	static int answer = 0;
 	static int[][] box;

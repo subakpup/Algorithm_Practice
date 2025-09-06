@@ -17,7 +17,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Solution {
+public class Solution_4013 {
 	static StringBuilder sb = new StringBuilder();
 	static int k;
 	static int[][] mag;

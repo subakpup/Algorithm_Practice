@@ -19,7 +19,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Main {
+public class Main_14502 {
 	static int n, m;
 	static int answer = 0;
 	static int[][] map;
