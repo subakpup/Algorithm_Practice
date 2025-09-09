@@ -20,7 +20,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Main {
+public class Main_2579 {
 	static int n, answer;
 	static int[] stair, dp;
 	
