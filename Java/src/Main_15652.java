@@ -9,42 +9,37 @@
  *  - 방문 여부를 따질 필요 없이, 시작 지점을 지정해 해당 자연수부터 시작하는 방식으로 구현
  */
 
-import java.util.*;
 import java.io.*;
+import java.util.*;
 
 public class Main_15652 {
-	// 클래스 변수 선언
+	static StringBuilder sb = new StringBuilder();
 	static int n, m;
-	static ArrayList<Integer> arr = new ArrayList<>();
+	static int[] li;
+	static boolean[] visited;
 	
-	// 백트래킹 함수
-	public static void dfs(int start) {
-		// 배열의 크기가 M일 경우 출력
-		if (arr.size() == m) {
-			for (int num : arr) {
-				System.out.print(num + " ");
-			}
-			System.out.println();
+	private static void dfs(int idx, int start) {
+		if (idx == m) {
+			for (int i : li) sb.append(i).append(" ");
+			sb.append("\n");
 			return;
 		}
 		
-		// 시작 지점(처음엔 1)부터 N까지 반복
 		for (int i = start; i <= n; i++) {
-			arr.add(i);
-			dfs(i); // 다음 숫자도 i 이상만 가능
-			arr.remove(arr.size()-1); // 백트래킹
+			li[idx] = i;
+			dfs(idx + 1, i);
 		}
-		
 	}
 	
-	public static void main(String[] args) throws IOException {
-		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(input.readLine(), " ");
-		
-		n = Integer.parseInt(st.nextToken());
-		m = Integer.parseInt(st.nextToken());
-		
-		dfs(1); // 1부터 시작
-	}
-
+    public static void main(String[] args) throws IOException {
+    	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    	StringTokenizer st = new StringTokenizer(br.readLine());
+    	n = Integer.parseInt(st.nextToken());
+    	m = Integer.parseInt(st.nextToken());
+    	
+    	li = new int[m];
+    	
+    	dfs(0, 1);
+    	System.out.println(sb.toString());
+    }
 }

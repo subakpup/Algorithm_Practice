@@ -1,52 +1,44 @@
-
 import java.io.*;
 import java.util.*;
 
 public class Main {
-	static int n;
-	static int[][] map;
 	static StringBuilder sb = new StringBuilder();
+	static int n, m;
+	static int[] li, nums;
+	static boolean[] visited;
 	
-	private static void quad(int x, int y, int len) {
-		int point = map[x][y];
-		boolean flag = true;
-		
-		for (int r = x; r < x + len; r++) {
-			for (int c = y; c < y + len; c++) {
-				if (map[r][c] != point) {
-					flag = false;
-				}
-			}
-		}
-		
-		if (!flag) {
-			int half = len / 2;
-			sb.append("(");
-			quad(x, y, half);
-			quad(x, y + half, half);
-			quad(x + half, y, half);
-			quad(x + half, y + half, half);
-			sb.append(")");
+	private static void dfs(int idx) {
+		if (idx == m) {
+			for (int i : li) sb.append(i).append(" ");
+			sb.append("\n");
 			return;
 		}
 		
-		sb.append(point);
-		
+		for (int i = 0; i < n; i++) {
+			if (!visited[i]) {
+				visited[i] = true;
+				li[idx] = nums[i];
+				dfs(idx);
+				visited[i] = false;
+			}
+		}
 	}
 	
     public static void main(String[] args) throws IOException {
     	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    	n = Integer.parseInt(br.readLine());
-    	map = new int[n][n];
-    	for (int i = 0; i < n; i++) {
-    		String line = br.readLine();
-    		for (int j = 0; j < n; j++) {
-    			map[i][j] = line.charAt(j) - '0';
-    		}
-    	}
+    	StringTokenizer st = new StringTokenizer(br.readLine());
+    	n = Integer.parseInt(st.nextToken());
+    	m = Integer.parseInt(st.nextToken());
     	
-    	quad(0, 0, n);
+    	st = new StringTokenizer(br.readLine());
+    	nums = new int[n];
+    	for (int i = 0; i < n; i++) nums[i] = Integer.parseInt(st.nextToken());
+    	Arrays.sort(nums);
+    	
+    	li = new int[m];
+    	visited = new boolean[n];
+    	
+    	dfs(0);
     	System.out.println(sb.toString());
-    	
     }
 }
