@@ -21,7 +21,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Main {
+public class Main_1107 {
 	static int n, m, answer;
 	static boolean[] broken;
 	

@@ -16,7 +16,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Main {
+public class Main_1719 {
 	
 	static StringBuilder sb = new StringBuilder();
 	static final int INF = (int) 1e9; // 최댓값
