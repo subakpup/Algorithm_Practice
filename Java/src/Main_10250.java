@@ -10,8 +10,8 @@ public class Main_10250 {
 		for (int tc = 0; tc < t; tc++) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			int h = Integer.parseInt(st.nextToken());
-			int w = Integer.parseInt(st.nextToken());
 			int n = Integer.parseInt(st.nextToken());
+			n = Integer.parseInt(st.nextToken());
 			
 			int answer = 101;
 			while (n - h > 0) {

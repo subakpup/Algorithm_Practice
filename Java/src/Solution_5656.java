@@ -158,12 +158,12 @@ public class Solution_5656 {
 		System.out.println(sb.toString());
 	}
 
-	private static void test() {
-		System.out.println("===================");
-		for (int[] line : map) {
-			for (int v : line)
-				System.out.print(v + " ");
-			System.out.println();
-		}
-	}
+//	private static void test() {
+//		System.out.println("===================");
+//		for (int[] line : map) {
+//			for (int v : line)
+//				System.out.print(v + " ");
+//			System.out.println();
+//		}
+//	}
 }

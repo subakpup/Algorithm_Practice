@@ -82,11 +82,11 @@ public class Main_2636 {
 		System.out.println(time + "\n" + cnt);
 	}
 	
-	private static void view() {
-		System.out.println();
-		for (int[] line : map) {
-			for (int v : line) System.out.print(v + " ");
-			System.out.println();
-		}
-	}
+//	private static void view() {
+//		System.out.println();
+//		for (int[] line : map) {
+//			for (int v : line) System.out.print(v + " ");
+//			System.out.println();
+//		}
+//	}
 }

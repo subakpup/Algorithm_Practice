@@ -16,7 +16,6 @@
  *  - 재귀를 이용하자
  */
 
-import java.util.*;
 import java.io.*;
 
 public class Main_1992 {
