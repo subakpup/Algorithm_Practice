@@ -1,7 +1,7 @@
 import java.io.*;
 import java.math.BigInteger;
 
-class Main_1914 {
+public class Main_1914 {
 	public static void hanoi(int n, int dep, int via, int end) { // 원판 갯수, 시작 지점, 경유 지점, 도착 지점
 		if (n == 1) { // 원판이 하나 남은 경우
 			System.out.println(dep + " " + end);	// 1번 -> 3번(가장 작은 원판만 남았기 때문)
