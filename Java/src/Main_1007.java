@@ -10,6 +10,7 @@ public class Main_1007 {
 			this.r = r;
 			this.c = c;
 		}
+	}
 	
 	static StringBuilder sb = new StringBuilder();
 	static int n, l;
