@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Solution {
+public class Solution_1861 {
 	static StringBuilder sb = new StringBuilder();
 	static int n, dist, room;
 	static int[][] map;
