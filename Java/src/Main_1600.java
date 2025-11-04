@@ -23,62 +23,55 @@ import java.io.*;
 public class Main_1600 {
 	static int k, w, h;
 	static int[][] map;
-
-	// 4방 + 말의 이동 위치
+	
+	static final int INF = 1_000_000_000;
 	static final int[] dr = { -1, 1, 0, 0, -1, -2, -2, -1, 1, 2, 2, 1 };
-	static final int[] dc = { 0, 0, -1, 1, -2, -1, 1, 2, 2, 1, -1, -2 };
-
-	private static int bfs(int sr, int sc) {
+	static final int[] dc = { 0, 0, -1, 1, -2, -1, 1, 2, -2, -1, 1, 2 };
+	
+	private static int bfs() {
 		Queue<int[]> queue = new ArrayDeque<>();
-		queue.add(new int[] { sr, sc, k }); // 좌표, 남은 점프 횟수
-
-		// 이동횟수를 저장할 배열 (최솟값 갱신을 위해 최댓값으로 초기화)
-		int[][][] visited = new int[h][w][k+1];
+		queue.add(new int[] { 0, 0, 0 });
+		
+		int[][][] dist = new int[h][w][k+1];
 		for (int i = 0; i < h; i++) {
 			for (int j = 0; j < w; j++) {
-				Arrays.fill(visited[i][j], Integer.MAX_VALUE);
+				Arrays.fill(dist[i][j], INF);
 			}
 		}
-		visited[sr][sc][k] = 0; // 현재 좌표 (이동 횟수 0)
 
+		dist[0][0][0] = 0;
+		
 		while (!queue.isEmpty()) {
 			int[] cur = queue.poll();
 			int r = cur[0], c = cur[1], jump = cur[2];
-
+			
 			for (int i = 0; i < 12; i++) {
-				if (jump <= 0 && i >= 4) break; // 말 이동을 하려는데 jump 횟수가 남지 않았을 경우 종료
-				
 				int nr = r + dr[i];
 				int nc = c + dc[i];
-
-				if (nr < 0 || nr >= h || nc < 0 || nc >= w || map[nr][nc] == 1) continue;
+				int nextJump = (i > 3) ? jump + 1 : jump;
 				
-				int nextJump = (i >= 4) ? (jump - 1) : jump; // 말 이동을 할 때는 jump - 1, 아니라면 그대로 갖고 감
+				if (nr < 0 || nr >= h || nc < 0 || nc >= w) continue;
+				if (nextJump > k || map[nr][nc] == 1 || dist[nr][nc][nextJump] != INF) continue;
 				
-				if (visited[nr][nc][nextJump] > visited[r][c][jump] + 1) {
-					visited[nr][nc][nextJump] = visited[r][c][jump] + 1;
-					queue.add(new int[] {nr, nc, nextJump});
-				}
-				
+				dist[nr][nc][nextJump] = dist[r][c][jump] + 1;
+				queue.add(new int[] { nr, nc, nextJump });
 			}
 		}
 		
-		// 정답 리턴
-		int answer = Integer.MAX_VALUE;
-		for (int i = 0; i <= k; i++) answer = Math.min(answer, visited[h-1][w-1][i]);
-		if (answer == Integer.MAX_VALUE) answer = -1;
-		return answer;
+		int answer = INF;
+		for (int i = 0; i <= k; i++) answer = Math.min(answer, dist[h-1][w-1][i]);
+		
+		return answer == INF ? -1 : answer;
 	}
-
+	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		k = Integer.parseInt(br.readLine());
-
+		
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		w = Integer.parseInt(st.nextToken()); // 열
-		h = Integer.parseInt(st.nextToken()); // 행
-
-		// 지도 초기화
+		w = Integer.parseInt(st.nextToken());
+		h = Integer.parseInt(st.nextToken());
+		
 		map = new int[h][w];
 		for (int i = 0; i < h; i++) {
 			st = new StringTokenizer(br.readLine());
@@ -86,9 +79,9 @@ public class Main_1600 {
 				map[i][j] = Integer.parseInt(st.nextToken());
 			}
 		}
-
-		System.out.println(bfs(0, 0));
-
+		
+		System.out.println(bfs());
 	}
 
 }
+
