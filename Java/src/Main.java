@@ -6,16 +6,16 @@ public class Main {
 	static int n, m;
 	static int[] arr;
 	
-	private static void dfs(int depth, int start) {
+	private static void dfs(int depth) {
 		if (depth == m) {
-			for (int i = 0; i < m; i++) sb.append(arr[i]).append(' ');
+			for (int i : arr) sb.append(i).append(' ');
 			sb.append('\n');
 			return;
 		}
 		
-		for (int i = start; i <= n; i++) {
+		for (int i = 1; i <= n; i++) {
 			arr[depth] = i;
-			dfs(depth + 1, i + 1);
+			dfs(depth + 1);
 		}
 	}
 	
@@ -27,8 +27,7 @@ public class Main {
 		m = Integer.parseInt(st.nextToken());
 		
 		arr = new int[m];
-		
-		dfs(0, 1);
+		dfs(0);
 		
 		System.out.println(sb.toString());
 	}
