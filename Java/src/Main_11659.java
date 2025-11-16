@@ -15,37 +15,32 @@ import java.util.*;
 import java.io.*;
 
 public class Main_11659 {
-
+	static StringBuilder sb = new StringBuilder();
+	static int n, m;
+	static int[] nums;
+	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		int n = Integer.parseInt(st.nextToken()); // 수의 갯수
-		int m = Integer.parseInt(st.nextToken()); // 합을 구해야 하는 횟수
 		
-		// 배열에 수 집어넣기
+		n = Integer.parseInt(st.nextToken());
+		m = Integer.parseInt(st.nextToken());
+		
 		st = new StringTokenizer(br.readLine());
-		int[] arr = new int[n+1];
+		nums = new int[n+1];
 		for (int i = 1; i <= n; i++) {
-			arr[i] = Integer.parseInt(st.nextToken());
+			nums[i] = nums[i-1] + Integer.parseInt(st.nextToken());
 		}
 		
-		// 누적합 구하기
-		int[] prefix = new int[n+1];
-		for (int i = 1; i <= n; i++) {
-			prefix[i] = arr[i] + prefix[i-1];
-		}
-		
-		// 결과
-		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < m; i++) {
 			st = new StringTokenizer(br.readLine());
-			int x = Integer.parseInt(st.nextToken()); // 시작 인덱스
-			int y = Integer.parseInt(st.nextToken()); // 종료 인덱스
-			int answer = prefix[y] - prefix[x-1]; // 종료 인덱스 구간합 - (시작 인덱스 - 1) 구간합
-			sb.append(answer).append("\n");
+			int a = Integer.parseInt(st.nextToken());
+			int b = Integer.parseInt(st.nextToken());
+			sb.append(nums[b] - nums[a-1]).append('\n');
 		}
-		System.out.println(sb);
 		
+		System.out.println(sb.toString());
 	}
 
 }
+

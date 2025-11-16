@@ -10,47 +10,53 @@
  * # 아이디어
  *  - 숫자를 입력 받은 후에 sort를 이용해 정렬을 시켜야겠다 !
  */
-import java.io.*;
 import java.util.*;
+import java.io.*;
 
 public class Main_15654 {
 	static StringBuilder sb = new StringBuilder();
 	static int n, m;
-	static int[] li, nums;
-	static boolean[] visited;
+	static int[] arr;
+	static boolean[] used;
+	static List<Integer> nums;
 	
-	private static void dfs(int idx) {
-		if (idx == m) {
-			for (int i : li) sb.append(i).append(" ");
-			sb.append("\n");
+	private static void dfs(int depth) {
+		if (depth == m) {
+			for (int a : arr) sb.append(a).append(' ');
+			sb.append('\n');
 			return;
 		}
 		
 		for (int i = 0; i < n; i++) {
-			if (!visited[i]) {
-				visited[i] = true;
-				li[idx] = nums[i];
-				dfs(idx + 1);
-				visited[i] = false;
+			if (!used[i]) {
+				used[i] = true;
+				arr[depth] = nums.get(i);
+				dfs(depth + 1);
+				used[i] = false;
 			}
 		}
 	}
 	
-    public static void main(String[] args) throws IOException {
-    	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    	StringTokenizer st = new StringTokenizer(br.readLine());
-    	n = Integer.parseInt(st.nextToken());
-    	m = Integer.parseInt(st.nextToken());
-    	
-    	st = new StringTokenizer(br.readLine());
-    	nums = new int[n];
-    	for (int i = 0; i < n; i++) nums[i] = Integer.parseInt(st.nextToken());
-    	Arrays.sort(nums);
-    	
-    	li = new int[m];
-    	visited = new boolean[n];
-    	
-    	dfs(0);
-    	System.out.println(sb.toString());
-    }
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		
+		n = Integer.parseInt(st.nextToken());
+		m = Integer.parseInt(st.nextToken());
+		
+		st = new StringTokenizer(br.readLine());
+		nums = new ArrayList<>();
+		for (int i = 0; i < n; i++) {
+			nums.add(Integer.parseInt(st.nextToken()));
+		}
+		Collections.sort(nums);
+		
+		arr = new int[m];
+		used = new boolean[n];
+		
+		dfs(0);
+		
+		System.out.println(sb.toString());
+	}
+
 }
