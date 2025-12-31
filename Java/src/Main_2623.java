@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Main {
+public class Main_2623 {
 	static StringBuilder sb = new StringBuilder();
 	static int n, m;
 	static int[] ind;
