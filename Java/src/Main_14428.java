@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Main_14427 {
+public class Main_14428 {
 	static StringBuilder sb = new StringBuilder();
 	static int n, m;
 	static int[] arr, tree;
@@ -10,9 +10,14 @@ public class Main_14427 {
 	
 	private static int init(int start, int end, int node) {
 		if (start == end) return tree[node] = start;
-		
 		int mid = (start + end) / 2;
 		return tree[node] = getIdx(init(start, mid, node * 2), init(mid + 1, end, node * 2 + 1));
+	}
+	
+	private static int getIdx(int idx1, int idx2) {
+		if (idx1 == -1) return idx2;
+		if (idx2 == -1) return idx1;
+		return arr[idx1] <= arr[idx2] ? idx1 : idx2;
 	}
 	
 	private static int update(int start, int end, int node, int idx, int val) {
@@ -27,8 +32,13 @@ public class Main_14427 {
 		return tree[node] = getIdx(update(start, mid, node * 2, idx, val), update(mid + 1, end, node * 2 + 1, idx, val));
 	}
 	
-	private static int getIdx(int idx1, int idx2) {
-		return arr[idx1] <= arr[idx2] ? idx1 : idx2;
+	private static int getMin(int start, int end, int node, int left, int right) {
+		if (left > end || right < start) return -1;
+		
+		if (left <= start && end <= right) return tree[node];
+		
+		int mid = (start + end) / 2;
+		return getIdx(getMin(start, mid, node * 2, left, right), getMin(mid + 1, end, node * 2 + 1, left, right));
 	}
 	
 	public static void main(String[] args) throws IOException {
@@ -43,21 +53,24 @@ public class Main_14427 {
 		}
 		
 		tree = new int[n * 4];
-		
 		init(1, n, 1);
 		
 		m = Integer.parseInt(br.readLine());
 		for (int i = 0; i < m; i++) {
 			st = new StringTokenizer(br.readLine());
-			int type = Integer.parseInt(st.nextToken());
 			
-			if (type == 1) {
-				int a = Integer.parseInt(st.nextToken());
-				int b = Integer.parseInt(st.nextToken());
+			String cmd = st.nextToken();
+			
+			if (cmd.equals("1")) {
+				int idx = Integer.parseInt(st.nextToken());
+				int val = Integer.parseInt(st.nextToken());
 				
-				update(1, n, 1, a, b);
+				update(1, n, 1, idx, val);
 			} else {
-				sb.append(tree[1]).append('\n');
+				int left = Integer.parseInt(st.nextToken());
+				int right = Integer.parseInt(st.nextToken());
+				
+				sb.append(getMin(1, n, 1, left, right)).append('\n');
 			}
 		}
 		
