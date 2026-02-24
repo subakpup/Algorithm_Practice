@@ -1,0 +1,16 @@
+# 이클립스 관련 무시 파일
+*.class
+*.log
+*.iml
+*.tmp
+*.swp
+.project
+.classpath
+.settings/
+.idea/
+bin/
+out/
+.DS_Store
+
+# src는 추적함
+!src/
