@@ -1,11 +1,7 @@
-import sys
-input = sys.stdin.readline
-
-n,b = map(int,input().split())
-number = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-result = ''
-
-while n != 0:
-    result += str(number[n%b])
-    n //= b
-print(result[::-1])
+num = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+n,m = map(int,input().split())
+res = ''
+while n > 0:
+    res += num[n%m]
+    n //= m
+print(''.join(reversed(res)))
